@@ -1,0 +1,25 @@
+ 
+
+#include<stdio.h>
+#include<conio.h>
+
+void main(){
+
+    int n,sum=0;
+    printf("Enter the no. : ");
+    scanf("%d", &n);
+
+    // Linear time algo
+    // for (int i = 0; i <= n; i++)
+    // {
+    //     /* code */
+    //     sum += i;
+    // }
+    // printf("%d", sum);
+
+    // Constant time algo
+    sum = (n*(n+1))/2;
+    printf("%d", sum);
+
+    getch();
+}

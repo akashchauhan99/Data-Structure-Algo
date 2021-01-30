@@ -1,0 +1,36 @@
+package com.company;
+
+public class Main {
+
+    public static void main(String[] args) {
+   // write your code here        
+        int[] intArray = {27, 35, -7, 23, -25, 55, 8, 9};
+
+        // It'll start from back        
+        for (int i = intArray.length-1; i>0; i--){
+            // It's for sorting the array            
+                for (int j = 0; j<i; j++){
+                if (intArray[j] > intArray[j + 1]) {
+                    swap(intArray, j, j + 1);
+                }
+            }
+        }
+
+        //it's for displaying the sorted array        
+        for (int k=0;k<intArray.length;k++){
+            System.out.println(intArray[k]);
+        }
+    }
+
+    // it's swap fucntion    
+    public static void swap(int[] array, int i, int j){
+        if(i==j){
+            return;
+        }
+
+        int temp;
+        temp = array[i];
+        array[i] = array[j];
+        array[j] = temp;
+    }
+}

@@ -1,0 +1,27 @@
+#include<stdio.h>
+#include<conio.h>
+
+int main(){
+    char s[] = "Hello! I'm there where are you";
+    int len = 0, temp;
+    // when we want to take input from user
+    // char s[20];
+    // printf("Enter the string\n");
+    // scanf("%[^\n]s", s);
+
+    while(s[len] != '\0'){
+        len++;
+    }
+    printf("Print the value of len %d\n", len);
+    
+    for(int i = 0; i < (len/2); i++){
+        temp = s[i];
+        s[i] = s[len-1-i];
+        s[len-1-i] = temp;
+    }
+    printf("String now is\n %s", s);
+
+    
+
+    return 0;
+}

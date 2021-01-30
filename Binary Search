@@ -1,0 +1,52 @@
+ 
+
+#include<stdio.h>
+
+//traversal
+void display(int arr[], int n){
+    for (int i = 0; i < n; i++)
+    {
+        printf("%d ", arr[i]);
+    }
+    printf("\n");
+    
+}
+
+//Binary Search
+int binarySearch(int arr[], int size, int element){
+    int low = 0, high = size-1,mid;
+    while (low<=high)
+    {
+        mid = (low + high)/2;
+        if (arr[mid] == element)
+        {
+            return mid;
+        }
+        if (arr[mid] < element)
+        {
+            low = mid + 1;
+        }
+        else{
+            high = mid - 1;
+        }  
+    }
+    
+    return -1;  
+    
+}
+
+int main(){
+    int arr[100] = {10, 20, 30, 40, 50};
+    int size = 5, element = 40;
+    display(arr, size);
+    int search = binarySearch(arr, size, element);
+    if (search == -1)
+    {
+        printf("Element not found");
+    }
+    else{
+        printf("Element found at %d location\n", search);
+    }
+
+    return 0;
+}

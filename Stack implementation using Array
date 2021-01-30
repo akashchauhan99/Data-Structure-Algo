@@ -1,0 +1,79 @@
+ 
+
+#include <stdio.h>
+#include <stdlib.h>
+
+struct stack
+{
+    int size;
+    int top;
+    int *arr;
+};
+
+int isEmpty(struct stack *ptr)
+{
+    if (ptr->top == -1)
+    {
+        return 1;
+    }
+    else
+    {
+        return 0;
+    }
+}
+
+int isFull(struct stack *ptr)
+{
+    if (ptr->top == ptr->size - 1)
+    {
+        return 1;
+    }
+    else
+    {
+        return 0;
+    }
+}
+
+int main()
+{
+    // int some pc/laptop this method may not be run so you can run this in a different way as i did. it is the where we use ditectly pointer
+    // struct stack *s;
+    // s->size = 80;
+    // s->top = -1;
+    // s->arr = (int *)malloc(s->size * sizeof(int));
+
+    // without point
+    struct stack s;
+    s.size = 80;
+    s.top = -1;
+    s.arr = (int *) malloc(s.size * sizeof(int));
+    // give the address of the variable
+    struct stack *ptr = &s;
+
+    // Pushing an element manually
+    s.arr[0] = 7;
+    s.top++;
+    s.arr[1] = 10;
+    s.top++;
+
+    // Check if stack is empty
+    if(isEmpty(ptr)){
+        printf("The stack is empty\n");
+    }
+    else{
+        printf("The stack is not empty\n");
+    }
+
+    //Check if stack is full or not
+    if (isFull(ptr))
+    {
+        printf("Stack is full\n");
+    }
+    else
+    {
+        printf("Stack is not full\n");
+    }
+    
+    return 0; 
+}
+

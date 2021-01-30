@@ -1,0 +1,115 @@
+ 
+
+#include <stdio.h>
+#include <stdlib.h>
+
+// Stack implementation
+struct stack
+{
+    int size;
+    int top;
+    int *arr;
+};
+
+// Check if stack is empty
+int isEmpty(struct stack *ptr)
+{
+    if (ptr->top == -1)
+    {
+        return 1;
+    }
+    else
+    {
+        return 0;
+    }
+}
+
+// Check if stack is full
+int isFull(struct stack *ptr)
+{
+    if (ptr->top == ptr->size - 1)
+    {
+        return 1;
+    }
+    else
+    {
+        return 0;
+    }
+}
+
+// Push elements from stack
+void push(struct stack * ptr, int val){
+    if (isFull(ptr))
+    {
+        printf("Stack Overflow! cannot push %d\n", val);
+    }
+    else
+    {
+        ptr->top++;
+        ptr->arr[ptr->top] = val;
+    }   
+}
+
+// pop elements from stack
+int pop(struct stack * ptr){
+    if (isEmpty(ptr))
+    {
+        printf("Stack underflow! cannot pop\n");
+        return -1;
+    }
+    else
+    {
+        int val = ptr->arr[ptr->top];
+        ptr->top--;
+        return val;
+    }   
+}
+
+int main()
+{
+    struct stack * sp = (struct stack *) malloc(sizeof(struct stack));
+    sp->size = 10;
+    sp->top = -1;
+    sp->arr = (int *) malloc(sp->size * sizeof(int));
+
+    printf("Before pushing, Full : %d\n", isFull(sp));
+    printf("Before pushing, Empty : %d\n", isEmpty(sp));
+
+    //Pushed The Elements
+    push(sp, 56);
+    push(sp, 24);
+    push(sp, 28);
+    push(sp, 45);
+    push(sp, 65);
+    push(sp, 78);
+    push(sp, 99);
+    push(sp, 20);
+    push(sp, 11);
+    push(sp, 12);
+    //It wll  not push after this Because the size of the stack is 10
+    push(sp, 36);
+    push(sp, 46);
+
+    printf("After pushing, Full : %d\n", isFull(sp));
+    printf("After pushing, Empty : %d\n", isEmpty(sp));
+
+    // popped The Elements
+    printf("Popped %d from the stack\n", pop(sp));
+    printf("Popped %d from the stack\n", pop(sp));
+    printf("Popped %d from the stack\n", pop(sp));
+    printf("Popped %d from the stack\n", pop(sp));
+    printf("Popped %d from the stack\n", pop(sp));
+    printf("Popped %d from the stack\n", pop(sp));
+    printf("Popped %d from the stack\n", pop(sp));
+    printf("Popped %d from the stack\n", pop(sp));
+    printf("Popped %d from the stack\n", pop(sp));
+    printf("Popped %d from the stack\n", pop(sp));
+    // it will not pop the element after this because now stack is empty
+    printf("Popped %d from the stack\n", pop(sp));
+
+    printf("After pushing, Full : %d\n", isFull(sp));
+    printf("After pushing, Empty : %d\n", isEmpty(sp));
+    
+    return 0; 
+}
+

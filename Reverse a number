@@ -1,0 +1,27 @@
+ 
+
+#include<stdio.h>
+#include<conio.h>
+
+int reverse(int num){
+    int rev = 0,rem = 0;
+    while (num != 0)
+    {
+        rem = num%10; //last digit of num
+        rev = rev*10+rem; //generate no.
+        num = num/10;
+    }
+    return rev;
+    
+}
+
+int main(){
+    int num, val;
+
+    printf("Enter the no. : ");
+    scanf("%d", &num);
+    val = reverse(num);
+    printf("Thr reverse no. is : %d", val);
+
+    return 0;
+}
